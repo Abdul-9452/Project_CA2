@@ -1,3 +1,4 @@
+
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
@@ -23,4 +24,15 @@ y_pred_log = log_model.predict(X_test)
 print(" Logistic Regression Accuracy:", accuracy_score(y_test, y_pred_log))
 print("\nConfusion Matrix:\n", confusion_matrix(y_test, y_pred_log))
 print("\nClassification Report:\n", classification_report(y_test, y_pred_log))
+
+from sklearn.neighbors import KNeighborsClassifier
+knn = KNeighborsClassifier(n_neighbors=5)
+knn.fit(X_train, y_train)
+
+y_pred_knn = knn.predict(X_test)
+
+print(" KNN Accuracy:", accuracy_score(y_test, y_pred_knn))
+print("\nConfusion Matrix:\n", confusion_matrix(y_test, y_pred_knn))
+print("\nClassification Report:\n", classification_report(y_test, y_pred_knn))
+
 
